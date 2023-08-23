@@ -4,6 +4,9 @@ import org.example.SimpleTask;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class TaskTest {
 
@@ -13,7 +16,7 @@ public class TaskTest {
         String query = "Позвонить";
         boolean expected = true;
         boolean actual = simpleTask.matches(query);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -22,27 +25,28 @@ public class TaskTest {
         String query = "Написать";
         boolean expected = false;
         boolean actual = simpleTask.matches(query);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
     public void matchesTestReturnsTrueWhenQueryEpic(){
-        String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
-        Epic epic = new Epic(55, subtasks);
+        String[] subtask = {"Молоко", "Яйца", "Хлеб"};
+        Epic epic = new Epic(55, subtask);
         String query = "Хлеб";
         boolean expected = true;
         boolean actual = epic.matches(query);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
+
     }
 
     @Test
     public void matchesTestReturnsFalseWhenQueryEpic(){
-        String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
-        Epic epic = new Epic(55, subtasks);
+        String[] subtask= {"Молоко", "Яйца", "Хлеб"};
+        Epic epic = new Epic(55, subtask);
         String query = "Кофе";
         boolean expected = false;
         boolean actual = epic.matches(query);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -56,7 +60,7 @@ public class TaskTest {
         String query = "Выкатка";
         boolean expected = true;
         boolean actual = meeting.matches(query);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -70,7 +74,7 @@ public class TaskTest {
         String query = "Презентация";
         boolean expected = false;
         boolean actual = meeting.matches(query);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -84,7 +88,7 @@ public class TaskTest {
         String query = "Приложение";
         boolean expected = true;
         boolean actual = meeting.matches(query);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -98,7 +102,7 @@ public class TaskTest {
         String query = "Программа";
         boolean expected = false;
         boolean actual = meeting.matches(query);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
 }

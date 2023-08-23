@@ -12,15 +12,26 @@ public class Epic extends Task {
         return subtask;
     }
 
+
     @Override
     public boolean matches(String query) {
         for (int i = 0; i < subtask.length; i++) {
-            if (subtask.equals(query)) {
+            if (subtask[i].equals(query)) {
                 return true;
             }
-            return false;
         }
         return false;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
